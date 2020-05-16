@@ -18,7 +18,16 @@ RUN \
 	libffi-dev \
 	python3-dev \
 	python-dev  \
-	zlib \
+	jpeg-dev \
+	zlib-dev \
+        freetype-dev \
+        lcms2-dev \
+        openjpeg-dev \
+        tiff-dev \
+        tk-dev \
+        tcl-dev \
+        harfbuzz-dev \
+        fribidi-dev
 	nodejs && \
  echo "**** install app ****" && \
  if [ -z ${MYLAR_COMMIT+x} ]; then \
