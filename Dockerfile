@@ -14,7 +14,7 @@ RUN \
 	python3 \
 	make \
 	gcc \
-	build-essential \
+	build-base \
 	libffi-dev \
 	python3-dev \
 	python-dev  \
