@@ -12,6 +12,7 @@ RUN \
  apk add --no-cache \
 	git \
 	python3 \
+	gcc \
 	nodejs && \
  echo "**** install app ****" && \
  if [ -z ${MYLAR_COMMIT+x} ]; then \
@@ -23,7 +24,8 @@ RUN \
  git checkout ${MYLAR_COMMIT} && \
  echo "**** install pip packages ****" && \
  python3 -m ensurepip && \
- pip3 install --no-cache --upgrade pip setuptools gcc wheel && \
+ 
+ pip3 install --no-cache --upgrade pip setuptools wheel && \
  pip3 install --no-cache-dir -r requirements.txt && \
 echo "**** cleanup ****" && \
  rm -rf \
