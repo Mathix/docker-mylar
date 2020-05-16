@@ -16,6 +16,7 @@ RUN \
 	libffi-dev \
 	python3-dev \
 	python-dev  \
+	musl-dev \
 	nodejs && \
  echo "**** install app ****" && \
  if [ -z ${MYLAR_COMMIT+x} ]; then \
