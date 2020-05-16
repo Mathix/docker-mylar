@@ -13,12 +13,6 @@ RUN \
 	git \
 	nodejs && \
  echo "**** install pip packages ****" && \
- pip install --no-cache-dir -U \
-	comictagger==1.1.32rc1 \
-	configparser \
-	html5lib \
-	requests \
-	tzlocal && \
  echo "**** install app ****" && \
  if [ -z ${MYLAR_COMMIT+x} ]; then \
 	MYLAR_COMMIT=$(curl -sX GET https://api.github.com/repos/evilhero/mylar/commits/master \
@@ -27,7 +21,8 @@ RUN \
  git clone https://github.com/evilhero/mylar.git /app/mylar && \
  cd /app/mylar && \
  git checkout ${MYLAR_COMMIT} && \
- echo "**** cleanup ****" && \
+ pip3 install --no-cache-dir -r requirements.txt && \
+echo "**** cleanup ****" && \
  rm -rf \
 	/root/.cache \
 	/tmp/*
