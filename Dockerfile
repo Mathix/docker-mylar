@@ -21,8 +21,8 @@ RUN \
  git clone https://github.com/evilhero/mylar.git /app/mylar && \
  cd /app/mylar && \
  git checkout ${MYLAR_COMMIT} && \
- python3 -m ensurepip && \
- pip3 install --no-cache-dir -r requirements.txt && \
+ python -m ensurepip && \
+ pip install --no-cache-dir -r requirements.txt && \
 echo "**** cleanup ****" && \
  rm -rf \
 	/root/.cache \
