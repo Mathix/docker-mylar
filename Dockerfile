@@ -13,6 +13,7 @@ RUN \
 	git \
 	python3 \
 	gcc \
+	libffi-dev \
 	nodejs && \
  echo "**** install app ****" && \
  if [ -z ${MYLAR_COMMIT+x} ]; then \
