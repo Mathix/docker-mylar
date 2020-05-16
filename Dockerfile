@@ -29,6 +29,7 @@ RUN \
  python3 -m ensurepip && \
  
  pip3 install --no-cache --upgrade pip setuptools wheel && \
+ pip3 install unrar-cffi==0.1.0a5 && \
  pip3 install --no-cache-dir -r requirements.txt && \
 echo "**** cleanup ****" && \
  rm -rf \
