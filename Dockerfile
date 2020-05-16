@@ -15,10 +15,10 @@ RUN \
  echo "**** install pip packages ****" && \
  echo "**** install app ****" && \
  if [ -z ${MYLAR_COMMIT+x} ]; then \
-	MYLAR_COMMIT=$(curl -sX GET https://api.github.com/repos/evilhero/mylar/commits/master \
+	MYLAR_COMMIT=$(curl -sX GET https://api.github.com/repos/mylar3/mylar3/commits/python3-dev \
 	| awk '/sha/{print $4;exit}' FS='[""]'); \
  fi && \
- git clone https://github.com/evilhero/mylar.git /app/mylar && \
+ git clone https://github.com/mylar3/mylar3.git /app/mylar && \
  cd /app/mylar && \
  git checkout ${MYLAR_COMMIT} && \
  python -m ensurepip && \
