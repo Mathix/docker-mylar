@@ -27,7 +27,7 @@ RUN \
         tk-dev \
         tcl-dev \
         harfbuzz-dev \
-        fribidi-dev
+        fribidi-dev \
 	nodejs && \
  echo "**** install app ****" && \
  if [ -z ${MYLAR_COMMIT+x} ]; then \
