@@ -11,39 +11,23 @@ RUN \
  echo "**** install system packages ****" && \
  apk add --no-cache \
 	git \
-	python3 \
-	make \
-	gcc \
-	build-base \
-	libffi-dev \
-	python3-dev \
-	python-dev  \
-	jpeg-dev \
-	zlib-dev \
-        freetype-dev \
-        lcms2-dev \
-        openjpeg-dev \
-        tiff-dev \
-        tk-dev \
-        tcl-dev \
-        harfbuzz-dev \
-        fribidi-dev \
 	nodejs && \
+ echo "**** install pip packages ****" && \
+ pip install --no-cache-dir -U \
+	comictagger==1.1.32rc1 \
+	configparser \
+	html5lib \
+	requests \
+	tzlocal && \
  echo "**** install app ****" && \
  if [ -z ${MYLAR_COMMIT+x} ]; then \
-	MYLAR_COMMIT=$(curl -sX GET https://api.github.com/repos/mylar3/mylar3/commits/python3-dev \
+	MYLAR_COMMIT=$(curl -sX GET https://api.github.com/repos/evilhero/mylar/commits/master \
 	| awk '/sha/{print $4;exit}' FS='[""]'); \
  fi && \
- git clone https://github.com/mylar3/mylar3.git /app/mylar && \
+ git clone https://github.com/evilhero/mylar.git /app/mylar && \
  cd /app/mylar && \
  git checkout ${MYLAR_COMMIT} && \
- echo "**** install pip packages ****" && \
- python3 -m ensurepip && \
- 
- pip3 install --no-cache --upgrade pip setuptools wheel && \
- pip3 install Pillow && \
- pip3 install --no-cache-dir -r requirements.txt && \
-echo "**** cleanup ****" && \
+ echo "**** cleanup ****" && \
  rm -rf \
 	/root/.cache \
 	/tmp/*
