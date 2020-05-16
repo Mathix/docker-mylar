@@ -11,8 +11,8 @@ RUN \
  echo "**** install system packages ****" && \
  apk add --no-cache \
 	git \
+	python3 \
 	nodejs && \
- echo "**** install pip packages ****" && \
  echo "**** install app ****" && \
  if [ -z ${MYLAR_COMMIT+x} ]; then \
 	MYLAR_COMMIT=$(curl -sX GET https://api.github.com/repos/mylar3/mylar3/commits/python3-dev \
@@ -21,8 +21,9 @@ RUN \
  git clone https://github.com/mylar3/mylar3.git /app/mylar && \
  cd /app/mylar && \
  git checkout ${MYLAR_COMMIT} && \
- python -m ensurepip && \
- pip install --no-cache-dir -r requirements.txt && \
+ echo "**** install pip packages ****" && \
+ python3 -m ensurepip && \
+ pip3 install --no-cache-dir -r requirements.txt && \
 echo "**** cleanup ****" && \
  rm -rf \
 	/root/.cache \
