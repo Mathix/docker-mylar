@@ -12,6 +12,7 @@ RUN \
  apk add --no-cache \
 	git \
 	python3 \
+	make \
 	gcc \
 	libffi-dev \
 	python3-dev \
